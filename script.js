@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 8. توليد صورة الـ QR Code مباشرة لحل أزمة حظر المتصفحات للـ Canvas
     const qrImageElement = document.getElementById('qr-image');
     const currentUrl = encodeURIComponent(window.location.href);
-    qrImageElement.src = `https://googleapis.com{currentUrl}&choe=UTF-8`;
+    qrImageElement.src = `https://qrserver.com{currentUrl}`;
     qrImageElement.style.display = "block";
 });
 
