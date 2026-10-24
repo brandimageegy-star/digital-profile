@@ -107,15 +107,14 @@ document.addEventListener("DOMContentLoaded", () => {
         articlesContainer.innerHTML = "<p style='text-align:center; color:#9ca3af; font-size:0.85rem;'>لا توجد مقالات حالياً</p>";
     }
 
-        // 7. توليد الـ QR Code ديناميكياً باستخدام مكتبة QRious المستقرة
-    const qr = new QRious({
-        element: document.getElementById('qrcode'),
-        value: window.location.href, // يقرأ رابط موقعك الحالي على جيتهاب أوتوماتيكياً
-        size: 160,
-        background: '#ffffff',
-        foreground: '#111827',
-        level: 'M'
-    });
+            // 7. توليد الـ QR Code كصورة مباشرة عبر Google API لضمان عدم الحظر من المتصفحات
+    const qrImageElement = document.getElementById('qr-image');
+    const currentUrl = encodeURIComponent(window.location.href);
+    
+    // ربط مسار الصورة بـ API جوجل لإنشاء الرمز فوراً
+    qrImageElement.src = `https://googleapis.com{currentUrl}&choe=UTF-8`;
+    qrImageElement.style.display = "block"; // إظهار الصورة فوراً بعد التجهيز
+
 
 
 // دالة ميكانيكية للتنقل اللحظي السريع بين تبويبي المنتجات والمقالات (تم تعديل المسمى هنا لـ tab-btn)
