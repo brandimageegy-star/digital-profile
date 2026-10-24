@@ -107,16 +107,16 @@ document.addEventListener("DOMContentLoaded", () => {
         articlesContainer.innerHTML = "<p style='text-align:center; color:#9ca3af; font-size:0.85rem;'>لا توجد مقالات حالياً</p>";
     }
 
-    // 7. استخدام رابط تجريبي مؤقت لضمان توليد الـ QR Code محلياً بشكل سليم
-    new QRCode(document.getElementById("qrcode"), {
-        text: "https://google.com", 
-        width: 150,
-        height: 150,
-        colorDark : "#111827",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.M
+        // 7. توليد الـ QR Code ديناميكياً باستخدام مكتبة QRious المستقرة
+    const qr = new QRious({
+        element: document.getElementById('qrcode'),
+        value: window.location.href, // يقرأ رابط موقعك الحالي على جيتهاب أوتوماتيكياً
+        size: 160,
+        background: '#ffffff',
+        foreground: '#111827',
+        level: 'M'
     });
-});
+
 
 // دالة ميكانيكية للتنقل اللحظي السريع بين تبويبي المنتجات والمقالات (تم تعديل المسمى هنا لـ tab-btn)
 function switchTab(tabId) {
