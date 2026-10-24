@@ -6,48 +6,287 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الملف التعريفي الرقمي الذكي</title>
 
-    <!-- ربط خط Cairo من جوجل ليعطي مظهراً احترافياً للنصوص العربية -->
+    <!-- ربط الخط والأيقونات من الإنترنت مباشرة -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-
-    <!-- ربط مكتبة الأيقونات الشهيرة FontAwesome لإظهار أيقونات الهاتف والواتساب والسوشيال ميديا -->
     <link rel="stylesheet" href="https://cloudflare.com">
 
-    <!-- ربط ملف التصميم والألوان الذي سننشئه في الخطوة القادمة -->
-    <link rel="stylesheet" href="style.css">
+    <!-- كود التصميم المدمج مباشرة لمنع ضياع الملفات -->
+    <style>
+        :root {
+            --main-blue: #0284c7;
+            --wp-green: #25d366;
+            --dark-gray: #1f2937;
+            --light-bg: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-gray);
+            padding: 20px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .avatar-wrapper img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--main-blue);
+            margin-bottom: 12px;
+        }
+
+        .profile-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .profile-header .subtitle {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        .profile-header .bio-text {
+            font-size: 0.9rem;
+            margin-top: 12px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .quick-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.1s ease;
+        }
+
+        .action-btn:active {
+            transform: scale(0.97);
+        }
+
+        .phone {
+            background-color: var(--main-blue);
+            color: var(--white);
+        }
+
+        .whatsapp {
+            background-color: var(--wp-green);
+            color: var(--white);
+        }
+
+        .email {
+            background-color: #4b5563;
+            color: var(--white);
+        }
+
+        .website {
+            background-color: #111827;
+            color: var(--white);
+        }
+
+        .vcard-save {
+            background-color: #d97706;
+            color: var(--white);
+            margin-top: 24px;
+        }
+
+        .social-icons-box {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .social-circle {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #374151;
+            font-size: 1.25rem;
+            text-decoration: none;
+        }
+
+        .tabs-area {
+            margin-top: 24px;
+        }
+
+        .tabs-navigation {
+            display: flex;
+            border-bottom: 2px solid #e5e7eb;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 6px;
+            background: none;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #6b7280;
+            cursor: pointer;
+        }
+
+        .tab-btn.active {
+            color: var(--main-blue);
+            border-bottom: 3px solid var(--main-blue);
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .list-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .item-card {
+            display: flex;
+            background: #f9fafb;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .item-card img {
+            width: 95px;
+            height: 95px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-content h3 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            color: #111827;
+        }
+
+        .card-content p {
+            font-size: 0.8rem;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        .qr-code-section {
+            text-align: center;
+            margin: 28px 0 12px 0;
+            padding: 20px;
+            background-color: #f9fafb;
+            border-radius: 14px;
+            border: 1px dashed #d1d5db;
+        }
+
+        .qr-code-section h3 {
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+            color: #4b5563;
+        }
+
+        .footer-credits {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 16px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- الحاوية الرئيسية للموقع وتحديد أقصى عرض يناسب الهواتف -->
     <div class="card-container">
 
-        <!-- 1. قسم الهيدر: يحتوي على الصورة الشخصية أو اللوجو والاسم والنبذة -->
+        <!-- الهيدر (الشعار والاسم) -->
         <header class="profile-header">
             <div class="avatar-wrapper">
-                <img id="profile-img" src="" alt="الشعار أو الصورة الشخصية">
+                <img id="profile-img" src="https://picsum.photos" alt="الشعار أو الصورة الشخصية">
             </div>
-            <h1 id="profile-name">جاري تحميل الاسم...</h1>
-            <p id="profile-title" class="subtitle"></p>
-            <p id="profile-about" class="bio-text"></p>
+            <h1 id="profile-name">النجم الساطع لخدمات التصوير</h1>
+            <p id="profile-title" class="subtitle">تصوير فوتوغرافي وإنتاج مرئي محترف</p>
+            <p id="profile-about" class="bio-text">نحن هنا لتوثيق أجمل لحظاتكم بأحدث كاميرات التصوير السينمائي
+                والفوتوغرافي، خبرة أكثر من 5 سنوات في تغطية المناسبات.</p>
         </header>
 
-        <!-- 2. قسم أزرار الاتصال السريع التفاعلية -->
+        <!-- أزرار الاتصال السريع -->
         <section class="quick-buttons">
-            <a id="btn-phone" href="#" class="action-btn phone"><i class="fa-solid fa-phone"></i> اتصال مباشر</a>
-            <a id="btn-whatsapp" href="#" class="action-btn whatsapp" target="_blank"><i
+            <a id="btn-phone" href="tel:+201012345678" class="action-btn phone"><i class="fa-solid fa-phone"></i> اتصال
+                مباشر</a>
+            <a id="btn-whatsapp" href="https://wa.me" class="action-btn whatsapp" target="_blank"><i
                     class="fa-brands fa-whatsapp"></i> مراسلة واتساب</a>
-            <a id="btn-email" href="#" class="action-btn email"><i class="fa-solid fa-envelope"></i> البريد
-                الإلكتروني</a>
-            <a id="btn-website" href="#" class="action-btn website" target="_blank"><i class="fa-solid fa-globe"></i>
-                الموقع الإلكتروني</a>
+            <a id="btn-email" href="mailto:star@example.com" class="action-btn email"><i
+                    class="fa-solid fa-envelope"></i> البريد الإلكتروني</a>
+            <a id="btn-website" href="https://google.com" class="action-btn website" target="_blank"><i
+                    class="fa-solid fa-globe"></i> الموقع الإلكتروني</a>
         </section>
 
-        <!-- 3. قسم أيقونات شبكات التواصل الاجتماعي (ستظهر هنا ديناميكياً) -->
-        <section class="social-icons-box" id="social-container"></section>
+        <!-- أيقونات السوشيال ميديا -->
+        <section class="social-icons-box" id="social-container">
+            <a href="https://facebook.com" class="social-circle" target="_blank"><i
+                    class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com" class="social-circle" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a href="https://linkedin.com" class="social-circle" target="_blank"><i
+                    class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://x.com" class="social-circle" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        </section>
 
-        <!-- 4. قسم التبويبات (Tabs) للتنقل بين المنتجات والمقالات -->
+        <!-- التبويبات والمجلدات للمنتجات والمقالات -->
         <section class="tabs-area">
             <div class="tabs-navigation">
                 <button class="tab-btn active" onclick="switchTab('products-tab')"><i class="fa-solid fa-box-open"></i>
@@ -57,25 +296,42 @@
             </div>
 
             <div class="tabs-content">
-                <!-- محتوى تبويب المنتجات -->
                 <div id="products-tab" class="tab-panel active">
-                    <div id="products-container" class="list-wrapper"></div>
+                    <div id="products-container" class="list-wrapper">
+                        <div class="item-card">
+                            <img src="https://picsum.photos" alt="منتج">
+                            <div class="card-content">
+                                <h3>جلسة تصوير خارجية (Outdoor)</h3>
+                                <p><strong>التصنيف:</strong> الأفراد</p>
+                                <p>جلسة تصوير احترافية تشمل تعديل وإخراج 20 صورة.</p>
+                                <p style="color: var(--main-blue); font-weight: bold;">100$</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- محتوى تبويب المقالات -->
                 <div id="articles-tab" class="tab-panel">
-                    <div id="articles-container" class="list-wrapper"></div>
+                    <div id="articles-container" class="list-wrapper">
+                        <div class="item-card">
+                            <img src="https://picsum.photos" alt="مقال">
+                            <div class="card-content">
+                                <h3>كيف تستعد لجلسة تصويرك الأولى؟</h3>
+                                <p>نصائح هامة حول اختيار الألوان والملابس المناسبة أمام الكاميرا.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. قسم الـ QR Code التفاعلي لمشاركة الرابط باستخدام Google API -->
+        <!-- قسم الـ QR Code التفاعلي المباشر والسريع جداً من جوجل -->
         <section class="qr-code-section">
             <h3>مسح الرمز لمشاركة الملف</h3>
-            <img id="qr-image" src="" alt="رمز QR Code" style="display: none; margin: 0 auto; border-radius: 8px;">
+            <div style="min-height: 150px; display: flex; align-items: center; justify-content: center;">
+                <img id="qr-image" src="" alt="رمز QR Code" style="display: none; margin: 0 auto; border-radius: 8px;">
+            </div>
         </section>
 
-        <!-- 6. التذييل: زر حفظ جهة الاتصال للهاتف مباشرة وحقوق النشر -->
+        <!-- التذييل وزر الحفظ -->
         <footer class="profile-footer">
             <a id="btn-vcard" href="contact.vcf" class="action-btn vcard-save" download><i
                     class="fa-solid fa-user-plus"></i> حفظ في جهات الاتصال</a>
@@ -84,14 +340,23 @@
 
     </div>
 
-    <!-- استدعاء مكتبة توليد الـ QR Code تلقائياً داخل المتصفح مجاناً -->
-    <script src="https://jsdelivr.net"></script>
+    <!-- كود التشغيل وتوليد الـ QR أوتوماتيكياً -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const qrImageElement = document.getElementById('qr-image');
+            const currentUrl = encodeURIComponent(window.location.href);
+            // جلب الـ QR كصورة مباشرة من جوجل رغماً عن أي حظر أمني للمتصفحات
+            qrImageElement.src = `https://googleapis.com{currentUrl}&choe=UTF-8`;
+            qrImageElement.style.display = "block";
+        });
 
-    <!-- ربط ملف البيانات الذي أنشأته في المرحلة الأولى -->
-    <script src="data.js"></script>
-
-    <!-- ملف التشغيل الذي سنربط به الواجهة بالبيانات لاحقاً -->
-    <script src="script.js"></script>
+        function switchTab(tabId) {
+            document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.remove("active"));
+            document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+            document.getElementById(tabId).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 
 </html>

@@ -1,4 +1,3 @@
-/* إعداد المتغيرات اللونية الأساسية لسهولة التعديل مستقبلاً */
 :root {
     --main-blue: #2563eb;
     --wp-green: #25d366;
@@ -7,9 +6,7 @@
     --white: #ffffff;
 }
 
-/* تصغير الهوامش الافتراضية للمتصفح وتحديد الخط الافتراضي كـ Cairo */
 * {
-    box-shadow: none;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -25,7 +22,6 @@ body {
     align-items: center;
 }
 
-/* تصميم الحاوية الكرتونية للموقع لتشبه أبعاد شاشة الجوال الاحترافية */
 .card-container {
     width: 100%;
     max-width: 450px;
@@ -35,7 +31,6 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* تنسيق الهيدر والصورة الشخصية الدائرية */
 .profile-header {
     text-align: center;
     margin-bottom: 24px;
@@ -68,7 +63,6 @@ body {
     line-height: 1.6;
 }
 
-/* تنسيق الأزرار وتأثير الضغط والتفاعل للمستخدم */
 .quick-buttons {
     display: flex;
     flex-direction: column;
@@ -92,10 +86,8 @@ body {
 
 .action-btn:active {
     transform: scale(0.97);
-    /* تأثير فيزيائي خفيف عند الضغط بالإصبع */
 }
 
-/* ألوان الأزرار المتنوعة */
 .phone {
     background-color: var(--main-blue);
     color: var(--white);
@@ -122,7 +114,6 @@ body {
     margin-top: 24px;
 }
 
-/* تنسيق صندوق أيقونات السوشيال ميديا الدائرية */
 .social-icons-box {
     display: flex;
     justify-content: center;
@@ -142,10 +133,8 @@ body {
     color: #374151;
     font-size: 1.25rem;
     text-decoration: none;
-    transition: background 0.2s;
 }
 
-/* تصميم نظام التبويبات والمجلدات للمنتجات والمقالات */
 .tabs-area {
     margin-top: 24px;
 }
@@ -180,7 +169,6 @@ body {
     display: block;
 }
 
-/* تنسيق كروت قائمة عرض المنتجات والمقالات مصنفة داخل مجلدات */
 .list-wrapper {
     display: flex;
     flex-direction: column;
@@ -220,7 +208,6 @@ body {
     line-height: 1.4;
 }
 
-/* تنسيق مساحة الـ QR Code الافتراضية للربط الدائم */
 .qr-code-section {
     text-align: center;
     margin: 28px 0 12px 0;
@@ -234,13 +221,6 @@ body {
     font-size: 0.9rem;
     margin-bottom: 14px;
     color: #4b5563;
-}
-
-#qrcode {
-    display: inline-block;
-    padding: 8px;
-    background: var(--white);
-    border-radius: 8px;
 }
 
 .footer-credits {
